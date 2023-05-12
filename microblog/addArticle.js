@@ -75,3 +75,4 @@ function addArticle() {
     }, 3000);
   });
 }
+
