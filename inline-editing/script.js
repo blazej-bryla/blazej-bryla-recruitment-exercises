@@ -24,4 +24,11 @@ function textEdit() {
       input.style.display = "none";
     }
   });
+
+  //change visibility to show input
+  placeholder.style.display = "none";
+  input.style.display = "inline";
+
+  //insert input before placeholder
+  placeholder.parentNode.insertBefore(input, placeholder);
 }
