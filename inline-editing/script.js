@@ -15,4 +15,13 @@ function textEdit() {
     placeholder.style.display = "block";
     input.style.display = "none";
   });
+
+  //same event listener as above, but works on keydown
+  input.addEventListener("keydown", (e) => {
+    if (e === "ENTER") {
+      placeholder.innerHTML = input.value;
+      placeholder.style.display = "block";
+      input.style.display = "none";
+    }
+  });
 }
