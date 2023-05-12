@@ -15,7 +15,9 @@ function addArticle() {
   const contentInputValue = document.querySelector("#content_input").value;
 
   const date = new Date();
-  const currentDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+  const currentDate = `${date.getFullYear()}-${
+    date.getMonth() + 1
+  }-${date.getDate()}`;
 
   const div = document.createElement("div");
   div.classList.add("single_article");
@@ -75,4 +77,3 @@ function addArticle() {
     }, 3000);
   });
 }
-

@@ -82,14 +82,5 @@ function appendData(data) {
     }
   });
 
-  function removeArticle(event) {
-    const articleDiv = event.target.closest(".single_article");
-    articleDiv.remove();
-  }
 
-  const deleteButtons = document.querySelectorAll(".delete_article_button");
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", removeArticle);
-  });
 }
-
