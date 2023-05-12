@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microblog</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="snackbar.css" />
+  </head>
+  <body>
+    <article class="posts_list_wrapper" id="posts_list_wrapper"></article>
+    <button onclick="showArticleForm()" id="create_article_button">
+      CREATE NEW ARTICLE
+    </button>
+    <form class="new_article_form" id="new_article_form">
+      <input type="text" id="author_input" placeholder="Author" />
+      <input type="text" id="title_input" placeholder="Title" />
+      <textarea w="400" id="content_input" placeholder="Content"></textarea>
+      <button type="submit" onclick="addArticle()">ADD</button>
+    </form>
+    <div id="snackbar">Succesfully added new Article!</div>
+  </body>
+  <script src="./getArticles.js"></script>
+
+  <script src="./addArticle.js"></script>
+</html>

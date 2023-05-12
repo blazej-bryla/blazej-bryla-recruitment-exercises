@@ -1,0 +1,25 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "author": "Pineapple_fan321",
+      "createdAt": "2023-01-01",
+      "title": "Something about pineapple",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium dictum erat vitae luctus. Phasellus eu venenatis tellus. Ut at pulvinar lacus. Vivamus est augue, elementum sit amet lacus sit amet, porttitor sagittis odio. Aliquam sit amet ligula placerat, fringilla neque a, mattis enim. Proin condimentum porttitor placerat. Maecenas imperdiet non nisi eu condimentum. Pellentesque gravida turpis vitae elit dapibus gravida. Aliquam sit amet quam varius, congue ex eget, lacinia ante. Nunc imperdiet mauris iaculis ante consequat blandit quis vel felis."
+    },
+    {
+      "id": 2,
+      "author": "PeterPenguin4",
+      "createdAt": "2023-02-05",
+      "title": "Why we love penguin",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium dictum erat vitae luctus. Phasellus eu venenatis tellus. Ut at pulvinar lacus. Vivamus est augue, elementum sit amet lacus sit amet, porttitor sagittis odio. Aliquam sit amet ligula placerat, fringilla neque a, mattis enim. Proin condimentum porttitor placerat. Maecenas imperdiet non nisi eu condimentum. Pellentesque gravida turpis vitae elit dapibus gravida. Aliquam sit amet quam varius, congue ex eget, lacinia ante. Nunc imperdiet mauris iaculis ante consequat blandit quis vel felis."
+    },
+    {
+      "id": 3,
+      "author": "TwisterPrettier",
+      "createdAt": "2023-03-08",
+      "title": "Clear code",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium dictum erat vitae luctus. Phasellus eu venenatis tellus. Ut at pulvinar lacus. Vivamus est augue, elementum sit amet lacus sit amet, porttitor sagittis odio. Aliquam sit amet ligula placerat, fringilla neque a, mattis enim. Proin condimentum porttitor placerat. Maecenas imperdiet non nisi eu condimentum. Pellentesque gravida turpis vitae elit dapibus gravida. Aliquam sit amet quam varius, congue ex eget, lacinia ante. Nunc imperdiet mauris iaculis ante consequat blandit quis vel felis."
+    }
+  ]
+}
