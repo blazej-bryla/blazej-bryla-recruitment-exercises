@@ -1,0 +1,20 @@
+*{
+margin: 0;
+padding: 0;
+}
+.posts_list_wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.single_article{
+    display: flex;
+    flex-direction: column;
+}
+
+.new_article_form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
