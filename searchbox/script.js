@@ -25,6 +25,10 @@ function renderColors() {
     const colorElement = document.createElement("li");
     colorElement.innerHTML = color;
     colorListWrapper.appendChild(colorElement);
+
+    colorElement.addEventListener("click", () => {
+      colorElement.style.color = "green";
+    });
   });
 }
 
