@@ -1,0 +1,1 @@
+import { colorList } from "./colorList";
