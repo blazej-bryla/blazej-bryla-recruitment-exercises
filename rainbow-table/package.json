@@ -2,7 +2,7 @@
   "name": "rainbow-table",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "rainbow_table.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
