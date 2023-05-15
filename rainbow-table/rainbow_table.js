@@ -16,8 +16,6 @@ function getUniqueWords(inputFile, outputFile) {
 
   const outputData = uniqueWords.join("\n");
   fs.writeFileSync(outputFile, outputData, "utf-8");
-
-  console.log("File was generated");
 }
 
 function createRainbowTable(inputFile, outputFile) {
