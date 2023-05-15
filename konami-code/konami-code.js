@@ -18,6 +18,14 @@ const secretCode = [
 let secretCodeCount = 0;
 let secretCodeTimer = 0;
 const maxTimeBetweenKeyPress = 5000;
+const secretDataMaxShowTime = 15000;
+
+const nothingSpecial = document.querySelector("#nothing_special");
+nothingSpecial.style.display = "none";
+
+function hideData() {
+  nothingSpecial.style.display = "none";
+}
 
 function handleKeyDown(event) {
   const { key } = event;
@@ -27,6 +35,9 @@ function handleKeyDown(event) {
 
     if (secretCodeCount === secretCode.length) {
       activateSecretData();
+      nothingSpecial.style.display = "block";
+
+      setTimeout(hideData, secretDataMaxShowTime);
       resetSecretCode();
     }
 
