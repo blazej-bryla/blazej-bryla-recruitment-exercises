@@ -44,7 +44,4 @@ Go to the project directory
 ![App Screenshot](https://iili.io/Hgnlll1.png)
 
 ### 3
-![App Screenshot](https://iili.io/HgnxE9S.png)
-
-### 4
 ![App Screenshot](https://iili.io/HgnG5kF.png)
