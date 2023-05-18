@@ -18,8 +18,8 @@ function textEdit() {
 
   //same event listener as above, but works on keydown
   input.addEventListener("keydown", (e) => {
-    if (e === "ENTER") {
-      placeholder.innerHTML = input.value;
+    if (e.key === "Enter") {
+      placeholder.innerText = input.value;
       placeholder.style.display = "block";
       input.style.display = "none";
     }
