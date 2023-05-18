@@ -1,86 +1,142 @@
+let dataToDisplay = [];
+
 fetch("./articles.json")
   .then((response) => {
     return response.json();
   })
-  .then((data) => appendData(data))
+  .then((data) => {
+    dataToDisplay = data.articles;
+    render();
+  })
   .catch((err) => console.log(err));
 
-function appendData(data) {
-  data = data.articles;
-  const wrapper = document.getElementById("posts_list_wrapper");
-  data.map((article, i) => {
-    const div = document.createElement("div");
-    div.classList.add("single_article");
+const wrapperElement = document.getElementById("posts_list_wrapper");
+const articleFormElement = document.querySelector("#new_article_form");
+const createArticleButtonElement = document.querySelector(
+  "#create_article_button"
+);
+const articleCountElement = document.querySelector("#article_count");
 
-    const createdAt = document.createElement("div");
-    createdAt.classList.add("article_createdAt");
-    createdAt.textContent = `Created at: ${article.createdAt}`;
-    div.appendChild(createdAt);
+articleFormElement.style.display = "none";
 
-    const author = document.createElement("div");
-    author.classList.add("article_author");
-    author.textContent = `Author: ${article.author}`;
-    div.appendChild(author);
+function showArticleForm() {
+  articleFormElement.style.display = "flex";
+  createArticleButtonElement.style.display = "none";
+}
 
-    const title = document.createElement("h3");
-    title.classList.add("article_title");
-    title.textContent = article.title;
-    div.appendChild(title);
+function render() {
+  wrapperElement.innerHTML = "";
+  articleCountElement.innerText = `All articles: ${dataToDisplay.length}`;
+  appendData(dataToDisplay);
+}
 
-    const content = document.createElement("div");
-    content.classList.add("article_content");
-    content.textContent = article.content;
-    div.appendChild(content);
+function removeArticle(idToRemove) {
+  console.log(idToRemove);
+  dataToDisplay = dataToDisplay.filter(({ id }) => id !== idToRemove);
+  render();
+}
 
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete_article_button");
-    deleteButton.textContent = "REMOVE ARTICLE";
-    deleteButton.addEventListener("click", () => {
-      div.remove();
-    });
-    div.appendChild(deleteButton);
+function addArticle() {
+  articleFormElement.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(articleFormElement);
+    const author = formData.get("author_input");
+    const title = formData.get("title_input");
+    const content = formData.get("content_input");
+    const id = Date.now();
 
-    wrapper.appendChild(div);
+    const createdAt = new Date();
 
-    const voteWrapper = document.createElement("div");
-    voteWrapper.classList.add("vote_wrapper");
-    div.appendChild(voteWrapper);
-
-    const voteUp = document.createElement("button");
-    voteUp.classList.add("vote_button", "vote_up");
-    voteUp.textContent = "+";
-    voteUp.addEventListener("click", () => {
-      if (article.votes >= 5) {
-        return;
-      } else {
-        article.votes++;
-      }
-      updateVotes();
-    });
-    voteWrapper.appendChild(voteUp);
-
-    const votesDisplay = document.createElement("div");
-    votesDisplay.classList.add("votes_display");
-    article.votes = 0;
-    votesDisplay.textContent = `Votes: ${article.votes}`;
-    voteWrapper.appendChild(votesDisplay);
-
-    const voteDown = document.createElement("button");
-    voteDown.classList.add("vote_button", "vote_down");
-    voteDown.textContent = "-";
-    voteDown.addEventListener("click", () => {
-      if (article.votes <= -10) {
-        return;
-      }
-      article.votes--;
-      updateVotes();
-    });
-    voteWrapper.appendChild(voteDown);
-
-    function updateVotes() {
-      votesDisplay.textContent = `Votes: ${article.votes}`;
-    }
+    dataToDisplay.push({ id, author, createdAt, title, content });
+    articleFormElement.reset();
+    articleFormElement.style.display = "none";
+    createArticleButtonElement.style.display = "block";
+    const snackbar = document.querySelector("#snackbar");
+    snackbar.classList.add("show");
+    setTimeout(() => {
+      snackbar.classList.remove("show");
+    }, 3000);
+    render();
   });
+}
 
+function createArticleElement(articleData) {
+  const articleElement = document.createElement("article");
 
+  const titleElement = document.createElement("h3");
+  titleElement.textContent = articleData.title;
+  articleElement.appendChild(titleElement);
+
+  const createdAtElement = document.createElement("h5");
+  createdAtElement.textContent = `Created at: ${formatDate(
+    articleData.createdAt
+  )}`;
+  articleElement.appendChild(createdAtElement);
+
+  const authorElement = document.createElement("h5");
+  authorElement.textContent = `Author: ${articleData.author}`;
+  articleElement.appendChild(authorElement);
+
+  const contentElement = document.createElement("p");
+  contentElement.textContent = articleData.content;
+  articleElement.appendChild(contentElement);
+
+  const deleteButtonElement = document.createElement("button");
+  deleteButtonElement.textContent = "REMOVE ARTICLE";
+  deleteButtonElement.addEventListener("click", () => {
+    removeArticle(articleData.id);
+  });
+  articleElement.appendChild(deleteButtonElement);
+
+  const voteWrapperElement = document.createElement("div");
+  articleElement.appendChild(voteWrapperElement);
+
+  const votesDisplay = document.createElement("div");
+  let votes = 0;
+  votesDisplay.textContent = `Votes: ${votes}`;
+  voteWrapperElement.appendChild(votesDisplay);
+
+  const voteUp = document.createElement("button");
+  voteUp.textContent = "+";
+  voteUp.addEventListener("click", () => {
+    if (votes >= 5) {
+      return;
+    } else {
+      votes++;
+    }
+    updateVotes();
+  });
+  voteWrapperElement.appendChild(voteUp);
+
+  const voteDown = document.createElement("button");
+  voteDown.textContent = "-";
+  voteDown.addEventListener("click", () => {
+    if (votes <= -10) {
+      return;
+    }
+    votes--;
+    updateVotes();
+  });
+  voteWrapperElement.appendChild(voteDown);
+
+  function updateVotes() {
+    votesDisplay.textContent = `Votes: ${votes}`;
+  }
+
+  return articleElement;
+}
+
+function appendData(data) {
+  data.map((articleData, i) => {
+    const listItemElement = document.createElement("li");
+    const article = createArticleElement(articleData);
+
+    listItemElement.appendChild(article);
+    wrapperElement.appendChild(listItemElement);
+  });
+}
+
+function formatDate(dateToFormat) {
+  const date = new Date(dateToFormat);
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 }

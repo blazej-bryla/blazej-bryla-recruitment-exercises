@@ -9,19 +9,20 @@
     <link rel="stylesheet" href="snackbar.css" />
   </head>
   <body>
-    <article class="posts_list_wrapper" id="posts_list_wrapper"></article>
-    <button onclick="showArticleForm()" id="create_article_button">
-      CREATE NEW ARTICLE
-    </button>
-    <form class="new_article_form" id="new_article_form">
-      <input type="text" id="author_input" placeholder="Author" />
-      <input type="text" id="title_input" placeholder="Title" />
-      <textarea w="400" id="content_input" placeholder="Content"></textarea>
-      <button type="submit" onclick="addArticle()">ADD</button>
-    </form>
+    <main>
+      <h1 id="article_count"></h1>
+      <ul class="posts_list_wrapper" id="posts_list_wrapper"></ul>
+      <button onclick="showArticleForm()" id="create_article_button">
+        CREATE NEW ARTICLE
+      </button>
+      <form class="new_article_form" id="new_article_form">
+        <input type="text" name="author_input" placeholder="Author" />
+        <input type="text" name="title_input" placeholder="Title" />
+        <textarea w="400" name="content_input" placeholder="Content"></textarea>
+        <button type="submit" onclick="addArticle()">ADD</button>
+      </form>
+    </main>
     <div id="snackbar">Succesfully added new Article!</div>
   </body>
   <script src="./getArticles.js"></script>
-
-  <script src="./addArticle.js"></script>
 </html>
