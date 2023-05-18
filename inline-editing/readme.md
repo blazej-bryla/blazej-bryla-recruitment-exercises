@@ -18,7 +18,7 @@ https://github.com/Selleo/recruitment-exercises/blob/master/exercises/js_basic_s
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone [https://link-to-project](https://github.com/blazej-bryla/blazej-bryla-recruitment-exercises/tree/main/inline-editing)
 ```
 
 Go to the project directory
