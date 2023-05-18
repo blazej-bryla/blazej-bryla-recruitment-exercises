@@ -1,4 +1,4 @@
-colorList = [
+const colorList = [
   "black",
   "white",
   "red",
@@ -11,20 +11,20 @@ colorList = [
   "orange",
 ];
 
-const colorListWrapper = document.querySelector("#list_wrapper");
-const inputSearch = document.querySelector("#input_search");
-const buttonClear = document.querySelector("#button_clear");
+const colorListWrapperElement = document.querySelector("#list_wrapper");
+const inputSearchElement = document.querySelector("#input_search");
+const buttonClearElement = document.querySelector("#button_clear");
 
 function renderColors() {
-  colorListWrapper.innerHTML = "";
+  colorListWrapperElement.innerText = "";
   const filteredColors = colorList.filter((color) =>
-    color.toLowerCase().includes(inputSearch.value.toLowerCase())
+    color.toLowerCase().includes(inputSearchElement.value.toLowerCase())
   );
   document.title = filteredColors[0];
   filteredColors.forEach((color) => {
     const colorElement = document.createElement("li");
-    colorElement.innerHTML = color;
-    colorListWrapper.appendChild(colorElement);
+    colorElement.innerText = color;
+    colorListWrapperElement.appendChild(colorElement);
 
     colorElement.addEventListener("click", () => {
       colorElement.style.color = "green";
@@ -33,10 +33,10 @@ function renderColors() {
 }
 
 function clearInputSearch() {
-  inputSearch.value = "";
+  inputSearchElement.value = "";
   renderColors();
 }
 
-inputSearch.addEventListener("input", renderColors);
-buttonClear.addEventListener("click", clearInputSearch);
+inputSearchElement.addEventListener("input", renderColors);
+buttonClearElement.addEventListener("click", clearInputSearch);
 renderColors();
