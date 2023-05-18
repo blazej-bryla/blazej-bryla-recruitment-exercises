@@ -12,18 +12,18 @@ function appendData(data) {
   const nothingSpecialElement = document.querySelector("#nothing_special");
 
   for (let i = 0; i < 5; i++) {
-    const div = document.createElement("div");
-    div.classList.add("secretData");
+    const containerElement = document.createElement("div");
+    containerElement.classList.add("secretData");
 
-    const author = document.createElement("div");
-    author.classList.add("author");
-    author.innerText = `Author: ${data[i].user.login}`;
-    div.appendChild(author);
+    const authorElement = document.createElement("div");
+    authorElement.classList.add("author");
+    authorElement.innerText = `Author: ${data[i].user.login}`;
+    containerElement.appendChild(authorElement);
 
-    const issueName = document.createElement("div");
-    issueName.classList.add("issueName");
-    issueName.innerText = `Issue name: ${data[i].title}`;
-    div.appendChild(issueName);
-    nothingSpecialElement.appendChild(div);
+    const issueNameElement = document.createElement("div");
+    issueNameElement.classList.add("issueName");
+    issueNameElement.innerText = `Issue name: ${data[i].title}`;
+    containerElement.appendChild(issueNameElement);
+    nothingSpecialElement.appendChild(containerElement);
   }
 }
