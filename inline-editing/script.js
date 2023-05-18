@@ -4,12 +4,12 @@ function textEdit() {
   const input = document.createElement("input");
 
   //set input value as placeholder text
-  input.value = placeholder.innerHTML;
+  input.value = placeholder.innerText;
 
   //event listener for placeholder when blur
   input.addEventListener("blur", () => {
     //set placeholder text as input value
-    placeholder.innerHTML = input.value;
+    placeholder.innerText = input.value;
 
     //change visibillity to show placeholder
     placeholder.style.display = "block";
