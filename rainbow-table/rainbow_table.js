@@ -8,6 +8,7 @@ const rainbowTableFile = "rainbow_table.txt";
 function getUniqueWords(inputFile, outputFile) {
   const data = fs.readFileSync(inputFile, "utf-8");
 
+  // removes special characters
   const sanitizedData = data.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
 
   const words = sanitizedData.split(" ");
