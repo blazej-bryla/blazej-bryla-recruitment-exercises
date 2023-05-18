@@ -13,18 +13,17 @@ const secretCode = [
   "r",
   "e",
   "t",
-  "s",
+  "S",
 ];
 let secretCodeCount = 0;
 let secretCodeTimer = 0;
 const maxTimeBetweenKeyPress = 5000;
 const secretDataMaxShowTime = 15000;
 
-const nothingSpecial = document.querySelector("#nothing_special");
-nothingSpecial.style.display = "none";
+const nothingSpecialElement = document.querySelector("#nothing_special");
 
 function hideData() {
-  nothingSpecial.style.display = "none";
+  nothingSpecialElement.style.display = "none";
 }
 
 function handleKeyDown(event) {
@@ -35,7 +34,7 @@ function handleKeyDown(event) {
 
     if (secretCodeCount === secretCode.length) {
       activateSecretData();
-      nothingSpecial.style.display = "block";
+      nothingSpecialElement.style.display = "block";
 
       setTimeout(hideData, secretDataMaxShowTime);
       resetSecretCode();
@@ -50,22 +49,6 @@ function handleKeyDown(event) {
   }
 }
 
-function handleKeyPress(event) {
-  const { key } = event;
-
-  if (key === secretCode[secretCodeCount]) {
-    secretCodeCount++;
-
-    if (secretCodeCount === secretCode.length) {
-      activateSecretData();
-      resetSecretCode();
-    }
-
-    clearTimeout(secretCodeTimer);
-    secretCodeTimer = setTimeout(resetSecretCode, maxTimeBetweenKeyPress);
-  }
-}
-
 function activateSecretData() {
   console.log("Konami Code was correct!");
 }
@@ -74,5 +57,4 @@ function resetSecretCode() {
   secretCodeCount = 0;
 }
 
-document.addEventListener("keypress", handleKeyPress);
 document.addEventListener("keydown", handleKeyDown);
