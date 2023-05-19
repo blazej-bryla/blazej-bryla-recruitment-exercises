@@ -1,7 +1,7 @@
 
 # Konami Code
 
-## Link to exercise:
+## Link to the exercise:
 
 https://github.com/Selleo/recruitment-exercises/tree/master/exercises/js_intermediate_stuff/konami_code
 
@@ -33,7 +33,7 @@ Go to the project directory
 ```
 
 # !!! IMPORTANT
-## Secret code is: "injects3secretS" last letter is big
+## Secret code is: "injects3secretS" last letter is capital
 
 
 
