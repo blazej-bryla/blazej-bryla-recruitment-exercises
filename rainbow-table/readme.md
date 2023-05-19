@@ -1,7 +1,7 @@
 
 # Rainbow Table
 
-## Link to exercise:
+## Link to the exercise:
 
 https://github.com/Selleo/recruitment-exercises/tree/master/exercises/js_intermediate_stuff/rainbow_table
 
