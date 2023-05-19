@@ -1,7 +1,7 @@
 
 # Microblog
 
-## Link to exercise:
+## Link to the exercise:
 
 https://github.com/Selleo/recruitment-exercises/blob/master/exercises/js_basic_stuff/microblog
 
